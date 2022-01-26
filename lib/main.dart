@@ -191,10 +191,12 @@ class _AppPageState extends State<AppPage> {
         EasyLoading.show(status: 'loading...');
         var submitResult = await SmileFlutter.submitJob(
             resultTag, 2, isProduction, "https:test.com", partnerParams, null, null);
+        print("Japhet now running an result is ${submitResult}");
         EasyLoading.dismiss();
         processResponse(submitResult);
         return;
       } catch (e) {
+        print("Japhet now running error is ${e}");
         EasyLoading.showError("Oops something went wrong");
       }
       return;
@@ -436,6 +438,7 @@ class _AppPageState extends State<AppPage> {
               OutlinedButton(
                   onPressed: () {
                     if (currentUserId != null) {
+                      print("Japhet now running an auth ${currentUserId}");
                       doAuth();
                     } else {
                       EasyLoading.showError(

@@ -4,11 +4,11 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMLKit/FaceDetection (2.4.0):
+  - GoogleMLKit/FaceDetection (2.5.0):
     - GoogleMLKit/MLKitCore
-    - MLKitFaceDetection (~> 1.4.0)
-  - GoogleMLKit/MLKitCore (2.4.0):
-    - MLKitCommon (~> 4.0.0)
+    - MLKitFaceDetection (~> 1.5.0)
+  - GoogleMLKit/MLKitCore (2.5.0):
+    - MLKitCommon (~> 5.0.0)
   - GoogleToolboxForMac/DebugUtils (2.3.2):
     - GoogleToolboxForMac/Defines (= 2.3.2)
   - GoogleToolboxForMac/Defines (2.3.2)
@@ -21,17 +21,17 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.3.2)
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.2)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.3.2)"
-  - GoogleUtilities/Environment (7.6.0):
+  - GoogleUtilities/Environment (7.7.0):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.6.0):
+  - GoogleUtilities/Logger (7.7.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/UserDefaults (7.6.0):
+  - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
-  - GoogleUtilitiesComponents (1.0.0):
+  - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.7.0)
-  - MLImage (1.0.0-beta1)
-  - MLKitCommon (4.0.0):
+  - MLImage (1.0.0-beta2)
+  - MLKitCommon (5.0.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
@@ -40,15 +40,15 @@ PODS:
     - GoogleUtilitiesComponents (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.12)
-  - MLKitFaceDetection (1.4.0):
-    - MLKitCommon (~> 4.0)
-    - MLKitVision (~> 2.0)
-  - MLKitVision (2.0.0):
+  - MLKitFaceDetection (1.5.0):
+    - MLKitCommon (~> 5.0)
+    - MLKitVision (~> 3.0)
+  - MLKitVision (3.0.0):
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
-    - MLImage (= 1.0.0-beta1)
-    - MLKitCommon (~> 4.0)
+    - MLImage (= 1.0.0-beta2)
+    - MLKitCommon (~> 5.0)
     - Protobuf (~> 3.12)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -57,10 +57,10 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
   - Protobuf (3.19.1)
-  - smile_flutter (0.0.12):
+  - smile_flutter (0.0.16):
     - Flutter
-    - Smile_Identity_SDK (= 2.1.4)
-  - Smile_Identity_SDK (2.1.4):
+    - Smile_Identity_SDK (= 2.1.8)
+  - Smile_Identity_SDK (2.1.8):
     - GoogleMLKit/FaceDetection
 
 DEPENDENCIES:
@@ -93,20 +93,20 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleMLKit: db5007bddb78dedf52b60f4038d32e7bd006b519
+  GoogleMLKit: 0d7f5aa2f8a2f2ea9d849a05abdbe80974b0ec83
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
-  GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
-  GoogleUtilitiesComponents: a69c0b3b369ba443e988141e75ef49d9010b1c80
+  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  MLImage: 647f3d580c10b3c9a3f6154f5d7baead60c42a0c
-  MLKitCommon: 923bcf261636f36af5fbf329b1643ea3cd69468b
-  MLKitFaceDetection: afd94cc8cf6edb01a07e36d3e31f1ee50891236e
-  MLKitVision: 53b8f93a864c8d9740f7f09041911f2e64150ec8
+  MLImage: a454f9f8ecfd537783a12f9488f5be1a68820829
+  MLKitCommon: 3bc17c6f7d25ce3660f030350b46ae7ec9ebca6e
+  MLKitFaceDetection: 617cb847441868a8bfd4b48d751c9b33c1104948
+  MLKitVision: e87dc3f2e456a6ab32361ebd985e078dd2746143
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
-  smile_flutter: 1cf2e6b29b962291cefd8a58e0ca53693fbf4ee0
-  Smile_Identity_SDK: c34f5c08ae0a1528b01fd6bff73733d46af73435
+  smile_flutter: cd7a6d9f55c0027eb20772bf319a9554fe10cf91
+  Smile_Identity_SDK: d259f4f13a2f9c1bf2c8fe43deb9c89263d60dcb
 
 PODFILE CHECKSUM: 3dffd8c48b531d21ec0ec153c22dc8e3a6223bc9
 

@@ -14,11 +14,11 @@ dependencies:
     sdk: flutter
 
 #dev testing
-#  smile_flutter:
-#    path: ../smile_flutter
+  smile_flutter:
+    path: ../smile_flutter
 
 #release testing
-  smile_flutter : ^0.0.15
+#  smile_flutter : ^0.0.15
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
