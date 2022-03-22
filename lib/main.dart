@@ -403,20 +403,24 @@ class _AppPageState extends State<AppPage> {
               ),
               OutlinedButton(
                   onPressed: () async {
-                    var result = await SmileFlutter.captureSelfie("") ?? null;
+                    var result = await SmileFlutter.captureSelfie("TEST_SELFIE_ID_CARD") ?? null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("Selfie Test")),
               OutlinedButton(
                   onPressed: () async {
-                    var result = await SmileFlutter.captureIDCard("") ?? null;
+                    var result = await SmileFlutter.captureIDCard("TEST_ID_CARD") ?? null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("ID Card Test")),
               OutlinedButton(
                   onPressed: () async {
+                    var config = HashMap<String, String>();
+                    config["id_capture_side"] = "0";
+                    config["id_capture_orientation"] = "2";
+                    config["capture_tip_text"] = "capture_tip_text";
                     var result =
-                        await SmileFlutter.captureSelfieAndIDCard("") ?? null;
+                        await SmileFlutter.captureSelfieAndIDCard("",config) ?? null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("Selfie and ID Card Test")),
@@ -471,6 +475,23 @@ class _AppPageState extends State<AppPage> {
                     }
                   },
                   child: Text("Show Consent")),
+              OutlinedButton(
+                  onPressed: () async {
+                    try {
+                      // print("japhet starting getCurrentTags");
+                      // var result = await SmileFlutter.getCurrentTags() ?? null;
+                      // print(result);
+                      // print("japhet ending getCurrentTags");
+
+                      print("japhet starting getImagesForTag");
+                      var result2 = await SmileFlutter.getImagesForTag("TEST_ID_CARD") ?? null;
+                      print(result2);
+                      print("japhet ending getImagesForTag");
+                    } catch (e) {
+
+                    }
+                  },
+                  child: Text("Print Tags")),
             ],
           ),
         ),

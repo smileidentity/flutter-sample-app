@@ -4,10 +4,10 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMLKit/FaceDetection (2.5.0):
+  - GoogleMLKit/FaceDetection (2.6.0):
     - GoogleMLKit/MLKitCore
     - MLKitFaceDetection (~> 1.5.0)
-  - GoogleMLKit/MLKitCore (2.5.0):
+  - GoogleMLKit/MLKitCore (2.6.0):
     - MLKitCommon (~> 5.0.0)
   - GoogleToolboxForMac/DebugUtils (2.3.2):
     - GoogleToolboxForMac/Defines (= 2.3.2)
@@ -56,11 +56,11 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
-  - Protobuf (3.19.1)
+  - Protobuf (3.19.4)
   - smile_flutter (0.0.16):
     - Flutter
-    - Smile_Identity_SDK (= 2.1.8)
-  - Smile_Identity_SDK (2.1.8):
+    - Smile_Identity_SDK (= 2.1.11)
+  - Smile_Identity_SDK (2.1.11):
     - GoogleMLKit/FaceDetection
 
 DEPENDENCIES:
@@ -93,7 +93,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleMLKit: 0d7f5aa2f8a2f2ea9d849a05abdbe80974b0ec83
+  GoogleMLKit: 755661c46990a85e42278015f26400286d98ad95
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
@@ -104,9 +104,9 @@ SPEC CHECKSUMS:
   MLKitVision: e87dc3f2e456a6ab32361ebd985e078dd2746143
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
-  smile_flutter: cd7a6d9f55c0027eb20772bf319a9554fe10cf91
-  Smile_Identity_SDK: d259f4f13a2f9c1bf2c8fe43deb9c89263d60dcb
+  Protobuf: 235750e4696ff59fb07d949a9dbbc92b3c0700fe
+  smile_flutter: 4a05aec097c16c39745c0c92c5254ecf102414a5
+  Smile_Identity_SDK: 96d99e9017b2ee0c810b44f347c1c077ee6e0c82
 
 PODFILE CHECKSUM: 3dffd8c48b531d21ec0ec153c22dc8e3a6223bc9
 
