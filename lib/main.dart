@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
 import 'package:smile_flutter/smile_flutter.dart';
-import 'dart:io' show Platform;
+import 'dart:io' show Directory, File, Platform;
 
 void main() {
   runApp(MyApp());
@@ -136,6 +136,29 @@ class _AppPageState extends State<AppPage> {
         EasyLoading.show(status: 'loading...');
         var submitResult = await SmileFlutter.submitJob(
             resultTag, 1, isProduction, "https:test.com", null, null, null);
+        EasyLoading.dismiss();
+        processResponse(submitResult);
+        return;
+      } catch (e) {
+        EasyLoading.showError("Oops something went wrong");
+      }
+      return;
+    }
+  }
+
+  doDocVerification() async {
+    var result = await SmileFlutter.captureSelfieAndIDCard("") ?? null;
+    var resultCode = result!["SID_RESULT_CODE"];
+    var resultTag = result["SID_RESULT_TAG"];
+    var userIdInfo = HashMap<String, String>();
+    userIdInfo["country"] = "NG";
+    userIdInfo["id_type"] = "PASSPORT";
+    userIdInfo["use_enrolled_image"] = "false";
+    if (resultCode == -1) {
+      try {
+        EasyLoading.show(status: 'loading...');
+        var submitResult = await SmileFlutter.submitJob(
+            resultTag, 6, isProduction, "https:test.com", null, userIdInfo, null);
         EasyLoading.dismiss();
         processResponse(submitResult);
         return;
@@ -418,9 +441,8 @@ class _AppPageState extends State<AppPage> {
                     var config = HashMap<String, String>();
                     config["id_capture_side"] = "0";
                     config["id_capture_orientation"] = "2";
-                    config["capture_tip_text"] = "capture_tip_text";
                     var result =
-                        await SmileFlutter.captureSelfieAndIDCard("",config) ?? null;
+                        await SmileFlutter.captureSelfieAndIDCard("test_tag",config) ?? null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("Selfie and ID Card Test")),
@@ -434,6 +456,11 @@ class _AppPageState extends State<AppPage> {
                     doEnrollWithIDCard();
                   },
                   child: Text("Enroll with ID Card")),
+              OutlinedButton(
+                  onPressed: () {
+                    doDocVerification();
+                  },
+                  child: Text("Document verification")),
               OutlinedButton(
                   onPressed: () {
                     doEnrollWithIDNumber(context);
@@ -484,11 +511,52 @@ class _AppPageState extends State<AppPage> {
                       // print("japhet ending getCurrentTags");
 
                       print("japhet starting getImagesForTag");
-                      var result2 = await SmileFlutter.getImagesForTag("TEST_ID_CARD") ?? null;
+                      var result2 = await SmileFlutter.getImagesForTag("test_tag") ?? null;
                       print(result2);
                       print("japhet ending getImagesForTag");
-                    } catch (e) {
 
+
+                      if(result2!=null){
+                        print('Japhet result2 is not null');
+                        List<dynamic> files = result2['images'];
+                        List<String> filePaths = [];
+                        for(var file in files){
+                          //File currFile = File(file);
+                          //filePaths.add(currFile.path);
+                          filePaths.add(file.toString());
+                        }
+                        print('Japhet before filePaths');
+                        print(filePaths);
+                        print('Japhet after filePaths');
+                        File? _faceImage;
+                        File? _documentImage;
+                        for(var file in filePaths){
+                          if(file.contains('SID_Preview_Full')) _faceImage = File(file.substring(8,file.length));
+                          if(file.contains('SID_IDCard')) _documentImage = File(file.substring(8,file.length));
+                        }
+                        if(_faceImage!=null){
+                          print('Japhet _faceImage is not null');
+                          var contents = await _faceImage.readAsBytes();
+                          print('Japhet _faceImage is not null and we are done');
+                          print('The file _faceImage is ${contents.length} bytes long.');
+                        }else{
+                          print('The file is _faceImage is null.');
+                        }
+
+                        if(_documentImage!=null){
+                          print('Japhet _documentImage is not null');
+                          var contents = await _documentImage.readAsBytes();
+                          print('Japhet _documentImage is not null and we are done');
+                          print('The file  _documentImage is ${contents.length} bytes long.');
+                        }else{
+                          print('The file is _documentImage is null.');
+                        }
+                      }else{
+                        print('Images are null');
+                      }
+
+                    } catch (e) {
+                      print('We got an error ${e}');
                     }
                   },
                   child: Text("Print Tags")),
