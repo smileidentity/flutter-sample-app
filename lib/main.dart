@@ -147,26 +147,17 @@ class _AppPageState extends State<AppPage> {
   }
 
   doDocVerification() async {
-    var result = await SmileFlutter.captureSelfieAndIDCard("") ?? null;
+    var config = HashMap<String, String>();
+    config["id_capture_side"] = "0";
+    config["id_capture_orientation"] = "1";
+    var result = await SmileFlutter.captureSelfieAndIDCard("",config) ?? null;
     var resultCode = result!["SID_RESULT_CODE"];
     var resultTag = result["SID_RESULT_TAG"];
-    var userIdInfo = HashMap<String, String>();
-    userIdInfo["country"] = "NG";
-    userIdInfo["id_type"] = "PASSPORT";
-    userIdInfo["use_enrolled_image"] = "false";
     if (resultCode == -1) {
-      try {
-        EasyLoading.show(status: 'loading...');
-        var submitResult = await SmileFlutter.submitJob(
-            resultTag, 6, isProduction, "https:test.com", null, userIdInfo, null);
-        EasyLoading.dismiss();
-        processResponse(submitResult);
-        return;
-      } catch (e) {
-        EasyLoading.showError("Oops something went wrong");
-      }
+      docVPickerDialog(context, tag: resultTag);
       return;
     }
+    EasyLoading.showError("Oops document verification failed");
   }
 
   doEnrollWithIDNumber(BuildContext context) async {
@@ -390,6 +381,196 @@ class _AppPageState extends State<AppPage> {
                             return;
                           } catch (e) {
                             EasyLoading.showError("Oops enroll with id number failed");
+                          }
+                          // your code
+                        })
+                  ],
+                )
+              ],
+            );
+          });
+        });
+  }
+
+
+  docVPickerDialog(BuildContext context, {String tag = ""}) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(builder: (context, setState) {
+            return AlertDialog(
+              scrollable: true,
+              title: Text("Please enter id information"),
+              content: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Form(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      DropdownButton<DropDownType>(
+                        value: countryDropDownValue,
+                        icon: const Icon(Icons.arrow_downward),
+                        iconSize: 24,
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        onChanged: (DropDownType? newValue) {
+                          setState(() {
+                            countryDropDownValue = newValue!;
+                          });
+                        },
+                        items: <DropDownType>[
+                          new DropDownType('Select Country', "select"),
+                          new DropDownType('Algeria', "DZ"),
+                          new DropDownType('Angola', "AO"),
+                          new DropDownType('Benin', "BJ"),
+                          new DropDownType('Botswana', "BW"),
+                          new DropDownType('Burkina Faso', "BF"),
+                          new DropDownType('Burundi', "BI"),
+                          new DropDownType('Cameroon', "CM"),
+                          new DropDownType('Cabo Verde', "CV"),
+                          new DropDownType('Chad', "TD"),
+                          new DropDownType('Comoros', "KM"),
+                          new DropDownType('Congo', "CG"),
+                          new DropDownType('Côte d Ivoire', "CI"),
+                          new DropDownType('DRC', "CD"),
+                          new DropDownType('Djibouti', "DJ"),
+                          new DropDownType('Egypt', "EG"),
+                          new DropDownType('Equatorial Guinea', "GQ"),
+                          new DropDownType('Eritrea', "ER"),
+                          new DropDownType('Ethiopia', "ET"),
+                          new DropDownType('Gabon', "GA"),
+                          new DropDownType('Gambia', "GM"),
+                          new DropDownType('Ghana', "GH"),
+                          new DropDownType('Guinea', "GN"),
+                          new DropDownType('Guinea-Bissau', "GW"),
+                          new DropDownType('Kenya', "LS"),
+                          new DropDownType('Liberia', "LR"),
+                          new DropDownType('Libya', "LY"),
+                          new DropDownType('Madagascar', "MW"),
+                          new DropDownType('Mali', "ML"),
+                          new DropDownType('Malawi', "MG"),
+                          new DropDownType('Mauritius', "MU"),
+                          new DropDownType('Mozambique', "MZ"),
+                          new DropDownType('Namibia', "NA"),
+                          new DropDownType('Niger', "NE"),
+                          new DropDownType('Nigeria', "NG"),
+                          new DropDownType('Morocco', "MA"),
+                          new DropDownType('Lesotho', "KE"),
+                          new DropDownType('Nigeria', "NG"),
+                          new DropDownType('Rwanda', "RW"),
+                          new DropDownType('Sao Tome and Principe', "ST"),
+                          new DropDownType('Senegal', "SN"),
+                          new DropDownType('Seychelles', "SC"),
+                          new DropDownType('Sierra Leone', "SL"),
+                          new DropDownType('Somalia', "SO"),
+                          new DropDownType('South Africa', "ZA"),
+                          new DropDownType('Sudan', "SD"),
+                          new DropDownType('Togo', "TG"),
+                          new DropDownType('Tunisia', "TN"),
+                          new DropDownType('Uganda', "UG"),
+                          new DropDownType('Tanzania', "TZ"),
+                          new DropDownType('Zambia', "ZM"),
+                          new DropDownType('Zimbabwe', "ZW"),
+                        ].map<DropdownMenuItem<DropDownType>>(
+                                (DropDownType value) {
+                              return DropdownMenuItem<DropDownType>(
+                                value: value,
+                                child: Text(value.name),
+                              );
+                            }).toList(),
+                      ),
+                      DropdownButton<DropDownType>(
+                        value: idTypeDropDownValue,
+                        icon: const Icon(Icons.arrow_downward),
+                        iconSize: 24,
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        onChanged: (DropDownType? newValue) {
+                          setState(() {
+                            idTypeDropDownValue = newValue!;
+                            currentUserId = newValue.name;
+                          });
+                        },
+                        items: <DropDownType>[
+                          new DropDownType('Select Id Type', "select"),
+                          new DropDownType(
+                              "Driver's License", "DRIVERS_LICENSE"),
+                          new DropDownType("Passport", "PASSPORT"),
+                          new DropDownType("SSNIT", "SSNIT"),
+                          new DropDownType("Voter ID", "VOTER_ID"),
+                          new DropDownType("National ID", "NATIONAL_ID"),
+                          new DropDownType("Alien Card", "ALIEN_CARD"),
+                          new DropDownType("BVN", "BVN"),
+                          new DropDownType("NIN", "NIN"),
+                          new DropDownType("NIN SLIP", "NIN_SLIP"),
+                          new DropDownType("TIN", "TIN"),
+                          new DropDownType("CAC", "CAC"),
+                        ].map<DropdownMenuItem<DropDownType>>(
+                                (DropDownType value) {
+                              return DropdownMenuItem<DropDownType>(
+                                value: value,
+                                child: Text(value.name),
+                              );
+                            }).toList(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              actions: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    OutlinedButton(
+                        child: Text("Cancel"),
+                        onPressed: () {
+                          Navigator.of(context, rootNavigator: true).pop();
+                          // your code
+                        }),
+                    OutlinedButton(
+                        child: Text("Submit"),
+                        onPressed: () async {
+                          if (countryDropDownValue.value == "select") {
+                            EasyLoading.showError("Please select country");
+                            return;
+                          }
+                          if (idTypeDropDownValue.value == "select") {
+                            EasyLoading.showError("Please select ID Type");
+                            return;
+                          }
+
+                          var userIdInfo = HashMap<String, String>();
+                          if (countryDropDownValue != null) {
+                            userIdInfo["country"] = countryDropDownValue.value;
+                          }
+                          if (idTypeDropDownValue != null) {
+                            userIdInfo["id_type"] = idTypeDropDownValue.value;
+                          }
+                          userIdInfo["use_enrolled_image"] = "false";
+                          Navigator.of(context, rootNavigator: true).pop();
+                          try {
+                            EasyLoading.show(status: 'loading...');
+                            var submitResult = await SmileFlutter.submitJob(
+                                tag,
+                                6,
+                                isProduction,
+                                "https:test.com",
+                                null,
+                                userIdInfo,
+                                null);
+                            EasyLoading.dismiss();
+                            processResponse(submitResult);
+                            return;
+                          } catch (e) {
+                            EasyLoading.showError("Oops document verification failed");
                           }
                           // your code
                         })
