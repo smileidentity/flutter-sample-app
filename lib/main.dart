@@ -7,7 +7,7 @@ import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
-import 'package:smile_flutter/smile_flutter.dart';
+import 'package:smile_flutter_3/smile_flutter_3.dart';
 import 'dart:io' show Directory, File, Platform;
 
 void main() {

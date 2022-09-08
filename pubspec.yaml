@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
 
 #dev testing
-  smile_flutter:
+  smile_flutter_3:
     path: ../smile_flutter
 
 #release testing

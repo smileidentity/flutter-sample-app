@@ -59,7 +59,7 @@ PODS:
     - Flutter
   - PromisesObjC (2.1.1)
   - Protobuf (3.21.5)
-  - smile_flutter (0.0.27):
+  - smile_flutter_3 (0.0.27):
     - Flutter
     - Smile_Identity_SDK (= 2.1.16)
   - Smile_Identity_SDK (2.1.16):
@@ -68,7 +68,7 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
-  - smile_flutter (from `.symlinks/plugins/smile_flutter/ios`)
+  - smile_flutter_3 (from `.symlinks/plugins/smile_flutter_3/ios`)
 
 SPEC REPOS:
   trunk:
@@ -92,8 +92,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
-  smile_flutter:
-    :path: ".symlinks/plugins/smile_flutter/ios"
+  smile_flutter_3:
+    :path: ".symlinks/plugins/smile_flutter_3/ios"
 
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
@@ -111,7 +111,7 @@ SPEC CHECKSUMS:
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Protobuf: 7504b04fffcf6662ad629694db8231f5e744327f
-  smile_flutter: 29b87f2ab837749939df751b39d5590ba0c3e823
+  smile_flutter_3: 5e959d6aeeb8a0fe5867777231758353bfcc5f3f
   Smile_Identity_SDK: ab6d95901e661c06b0f3d8bfb6b385f4f5cc506c
 
 PODFILE CHECKSUM: 3dffd8c48b531d21ec0ec153c22dc8e3a6223bc9
