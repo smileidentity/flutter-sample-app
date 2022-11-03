@@ -613,7 +613,10 @@ class _AppPageState extends State<AppPage> {
                   child: Text("Selfie Test")),
               OutlinedButton(
                   onPressed: () async {
-                    var result = await SmileFlutter.captureIDCard("TEST_ID_CARD") ?? null;
+                    var config = HashMap<String, String>();
+                    config["id_capture_side"] = "2";
+                    var result = await SmileFlutter.captureIDCard
+                      ("TEST_ID_CARD",config) ?? null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("ID Card Test")),
@@ -621,7 +624,7 @@ class _AppPageState extends State<AppPage> {
                   onPressed: () async {
                     var config = HashMap<String, String>();
                     config["id_capture_side"] = "0";
-                    config["id_capture_orientation"] = "2";
+                    config["id_capture_side"] = "2";
                     var result =
                         await SmileFlutter.captureSelfieAndIDCard("test_tag",config) ?? null;
                     handleSelfieResult(context, result);
@@ -667,7 +670,7 @@ class _AppPageState extends State<AppPage> {
                           DateFormat('dd_MM_yyyy_HH_mm_ss').format(dt);
                       var result = await SmileFlutter.showConsent(
                               currentTag,
-                              Platform.isAndroid ? "app_icon" : "AppIcon",
+                              Platform.isAndroid ? "ic_purse" : "AppIcon",
                               "com.smileidentity.smileFlutterExample",
                               "Smile ID Test",
                               "https://docs.smileidentity.com/") ??
@@ -686,55 +689,55 @@ class _AppPageState extends State<AppPage> {
               OutlinedButton(
                   onPressed: () async {
                     try {
-                      // print("japhet starting getCurrentTags");
-                      // var result = await SmileFlutter.getCurrentTags() ?? null;
-                      // print(result);
-                      // print("japhet ending getCurrentTags");
+                      print("japhet starting getCurrentTags");
+                      var result = await SmileFlutter.getCurrentTags() ?? null;
+                      print(result);
+                      print("japhet ending getCurrentTags");
 
-                      print("japhet starting getImagesForTag");
-                      var result2 = await SmileFlutter.getImagesForTag("test_tag") ?? null;
-                      print(result2);
-                      print("japhet ending getImagesForTag");
-
-
-                      if(result2!=null){
-                        print('Japhet result2 is not null');
-                        List<dynamic> files = result2['images'];
-                        List<String> filePaths = [];
-                        for(var file in files){
-                          //File currFile = File(file);
-                          //filePaths.add(currFile.path);
-                          filePaths.add(file.toString());
-                        }
-                        print('Japhet before filePaths');
-                        print(filePaths);
-                        print('Japhet after filePaths');
-                        File? _faceImage;
-                        File? _documentImage;
-                        for(var file in filePaths){
-                          if(file.contains('SID_Preview_Full')) _faceImage = File(file.substring(8,file.length));
-                          if(file.contains('SID_IDCard')) _documentImage = File(file.substring(8,file.length));
-                        }
-                        if(_faceImage!=null){
-                          print('Japhet _faceImage is not null');
-                          var contents = await _faceImage.readAsBytes();
-                          print('Japhet _faceImage is not null and we are done');
-                          print('The file _faceImage is ${contents.length} bytes long.');
-                        }else{
-                          print('The file is _faceImage is null.');
-                        }
-
-                        if(_documentImage!=null){
-                          print('Japhet _documentImage is not null');
-                          var contents = await _documentImage.readAsBytes();
-                          print('Japhet _documentImage is not null and we are done');
-                          print('The file  _documentImage is ${contents.length} bytes long.');
-                        }else{
-                          print('The file is _documentImage is null.');
-                        }
-                      }else{
-                        print('Images are null');
-                      }
+                      // print("japhet starting getImagesForTag");
+                      // var result2 = await SmileFlutter.getImagesForTag("test_tag") ?? null;
+                      // print(result2);
+                      // print("japhet ending getImagesForTag");
+                      //
+                      //
+                      // if(result2!=null){
+                      //   print('Japhet result2 is not null');
+                      //   List<dynamic> files = result2['images'];
+                      //   List<String> filePaths = [];
+                      //   for(var file in files){
+                      //     //File currFile = File(file);
+                      //     //filePaths.add(currFile.path);
+                      //     filePaths.add(file.toString());
+                      //   }
+                      //   print('Japhet before filePaths');
+                      //   print(filePaths);
+                      //   print('Japhet after filePaths');
+                      //   File? _faceImage;
+                      //   File? _documentImage;
+                      //   for(var file in filePaths){
+                      //     if(file.contains('SID_Preview_Full')) _faceImage = File(file.substring(8,file.length));
+                      //     if(file.contains('SID_IDCard')) _documentImage = File(file.substring(8,file.length));
+                      //   }
+                      //   if(_faceImage!=null){
+                      //     print('Japhet _faceImage is not null');
+                      //     var contents = await _faceImage.readAsBytes();
+                      //     print('Japhet _faceImage is not null and we are done');
+                      //     print('The file _faceImage is ${contents.length} bytes long.');
+                      //   }else{
+                      //     print('The file is _faceImage is null.');
+                      //   }
+                      //
+                      //   if(_documentImage!=null){
+                      //     print('Japhet _documentImage is not null');
+                      //     var contents = await _documentImage.readAsBytes();
+                      //     print('Japhet _documentImage is not null and we are done');
+                      //     print('The file  _documentImage is ${contents.length} bytes long.');
+                      //   }else{
+                      //     print('The file is _documentImage is null.');
+                      //   }
+                      // }else{
+                      //   print('Images are null');
+                      // }
 
                     } catch (e) {
                       print('We got an error ${e}');
