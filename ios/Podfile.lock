@@ -111,7 +111,7 @@ SPEC CHECKSUMS:
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Protobuf: 02524ec14183fe08fb259741659e79683788158b
-  smile_flutter: 670f879baaf5e297f6b380c7fb8fc47e396e8f6f
+  smile_flutter: 3212f9ca5afac5545fddec8ef05fe9b0df50a652
   Smile_Identity_SDK: 06df8fb388846848da935bad4dfffcc69193338e
 
 PODFILE CHECKSUM: 3dffd8c48b531d21ec0ec153c22dc8e3a6223bc9

@@ -47,5 +47,7 @@
     <string>To allow Smile ID to access your location</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Would like to access photos</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>
