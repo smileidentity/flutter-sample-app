@@ -11,6 +11,7 @@
 
     <application
         android:debuggable="true"
+        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="smile_flutter_example">
         <activity
@@ -43,9 +44,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.smileid.smileidui.SIDIDCaptureActivity" />
-        <activity android:name="com.smileid.smileidui.SIDSelfieCaptureActivity" />
-        <activity android:name="com.smileid.smileidui.SIDReviewActivity" />
+        <activity
+            android:name="com.smileid.smileidui.SIDIDCaptureActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.smileid.smileidui.SIDSelfieCaptureActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.smileid.smileidui.SIDReviewActivity"
+            android:exported="false" />
+        <activity
+            android:theme="@style/LaunchTheme"
+            android:name="com.smileidentity.libsmileid.core.consent.ConsentActivity"
+            android:exported="false" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
