@@ -624,7 +624,7 @@ class _AppPageState extends State<AppPage> {
               OutlinedButton(
                   onPressed: () async {
                     var config = HashMap<String, String>();
-                    config["id_prompt_blurry"] = "This is fucking blurry";
+                    config["id_prompt_blurry"] = "This is blurry";
                     var result =
                         await SmileFlutter.captureIDCard("TEST_ID_CARD",config) ??
                             null;

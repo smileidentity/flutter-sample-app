@@ -59,7 +59,7 @@ PODS:
     - Flutter
   - PromisesObjC (2.1.1)
   - Protobuf (3.21.9)
-  - smile_flutter_3 (0.0.27):
+  - smile_flutter_3 (0.0.5):
     - Flutter
     - Smile_Identity_SDK (= 2.1.17)
   - Smile_Identity_SDK (2.1.17):
@@ -111,7 +111,7 @@ SPEC CHECKSUMS:
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Protobuf: 02524ec14183fe08fb259741659e79683788158b
-  smile_flutter_3: c77b70c2b752dc3708f5d4ba461a3a496b064231
+  smile_flutter_3: 7c92d4e351b95d0a99afabf02669e57adc1f7921
   Smile_Identity_SDK: 06df8fb388846848da935bad4dfffcc69193338e
 
 PODFILE CHECKSUM: 3dffd8c48b531d21ec0ec153c22dc8e3a6223bc9
