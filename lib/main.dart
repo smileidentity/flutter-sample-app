@@ -680,14 +680,21 @@ class _AppPageState extends State<AppPage> {
                       var dt = DateTime.fromMillisecondsSinceEpoch(millis);
                       var currentTag =
                           DateFormat('dd_MM_yyyy_HH_mm_ss').format(dt);
-                      var result = await SmileFlutter.showConsent(
+                      var result = await SmileFlutter.showBVNConsent(
                               currentTag,
-                              Platform.isAndroid ? "app_icon" : "AppIcon",
+                              Platform.isAndroid ? "ic_purse" : "AppIcon",
                               "com.smileidentity.smileFlutterExample",
                               "Smile ID Test",
-                              "https://docs.smileidentity.com/") ??
+                              "https://docs.smileidentity.com/",false) ??
                           null;
-                      var resultCode = result!["SID_RESULT_CODE"];
+
+                      print("Japhet starting");
+                      for(var v in result!.keys) {
+                        print("key is "+v);
+                        // print("value is "+result[v]);
+                      }
+                      print("Japhet ending");
+                      var resultCode = result["SID_RESULT_CODE"];
                       if (resultCode == 1) {
                         doEnroll(tag: currentTag);
                         return;

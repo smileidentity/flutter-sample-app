@@ -57,6 +57,21 @@
             android:theme="@style/LaunchTheme"
             android:name="com.smileidentity.libsmileid.core.consent.ConsentActivity"
             android:exported="false" />
+
+        <activity
+            android:name="com.smileidentity.libsmileid.core.consent.bvn.ui.activities.ConsentBVNNumberActivity"
+            android:exported="false"
+            android:theme="@style/LaunchTheme" />
+
+        <activity
+            android:name="com.smileidentity.libsmileid.core.consent.bvn.ui.activities.ConsentBVNContactMethodActivity"
+            android:exported="false"
+            android:theme="@style/LaunchTheme" />
+
+        <activity
+            android:name="com.smileidentity.libsmileid.core.consent.bvn.ui.activities.ConsentOTPVerificationActivity"
+            android:exported="false"
+            android:theme="@style/LaunchTheme" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
