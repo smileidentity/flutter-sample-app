@@ -59,10 +59,10 @@ PODS:
     - Flutter
   - PromisesObjC (2.2.0)
   - Protobuf (3.22.1)
-  - smile_flutter_3 (0.0.7):
+  - smile_flutter_3 (0.0.8):
     - Flutter
-    - Smile_Identity_SDK (= 2.1.22)
-  - Smile_Identity_SDK (2.1.22):
+    - Smile_Identity_SDK (= 2.1.23)
+  - Smile_Identity_SDK (2.1.23):
     - GoogleMLKit/FaceDetection
 
 DEPENDENCIES:
@@ -111,8 +111,8 @@ SPEC CHECKSUMS:
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   Protobuf: d7f7c8329edf5eb8af65547a8ba3e9c1cee927d5
-  smile_flutter_3: 3f27b79687f034d967778b5a1c07aed2d8a80509
-  Smile_Identity_SDK: be4976bec0e1d3d8af5ab63c150f74301b3382f9
+  smile_flutter_3: 5fb49e5556cf3172cbd2d544adec76271caacab7
+  Smile_Identity_SDK: cc939bc1b52c6334ff3c5aa85fc089dcaefc3260
 
 PODFILE CHECKSUM: 30517025a2fecca2d72dac25f08abb5b9a8f1a56
 
