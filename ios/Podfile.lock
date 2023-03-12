@@ -57,12 +57,12 @@ PODS:
   - nanopb/encode (2.30909.0)
   - path_provider (0.0.1):
     - Flutter
-  - PromisesObjC (2.1.1)
-  - Protobuf (3.21.12)
+  - PromisesObjC (2.2.0)
+  - Protobuf (3.22.1)
   - smile_flutter_3 (0.0.7):
     - Flutter
-    - Smile_Identity_SDK (= 2.1.21)
-  - Smile_Identity_SDK (2.1.21):
+    - Smile_Identity_SDK (= 2.1.22)
+  - Smile_Identity_SDK (2.1.22):
     - GoogleMLKit/FaceDetection
 
 DEPENDENCIES:
@@ -109,10 +109,10 @@ SPEC CHECKSUMS:
   MLKitVision: 96c96571190b7f63eddf4a12068ce8a8689e0d2c
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
-  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  Protobuf: 120350fc38646e2dedc26f49ecba778184ea1de2
-  smile_flutter_3: e88bcea2ec3579e11aceef8b5cde0e3224cf04cf
-  Smile_Identity_SDK: c767b5210c98c6ca58b8a052e8ede968f891ec7f
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  Protobuf: d7f7c8329edf5eb8af65547a8ba3e9c1cee927d5
+  smile_flutter_3: 3f27b79687f034d967778b5a1c07aed2d8a80509
+  Smile_Identity_SDK: be4976bec0e1d3d8af5ab63c150f74301b3382f9
 
 PODFILE CHECKSUM: 30517025a2fecca2d72dac25f08abb5b9a8f1a56
 
