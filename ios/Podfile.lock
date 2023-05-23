@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - GoogleDataTransport (9.2.2):
+  - GoogleDataTransport (9.2.3):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -53,18 +53,18 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
-  - path_provider (0.0.1):
+  - path_provider_ios (0.0.1):
     - Flutter
   - PromisesObjC (2.2.0)
-  - smile_flutter_3 (0.0.10):
+  - smile_flutter_3 (0.0.13):
     - Flutter
-    - Smile_Identity_SDK (= 2.1.28)
-  - Smile_Identity_SDK (2.1.28):
+    - Smile_Identity_SDK (= 2.1.33)
+  - Smile_Identity_SDK (2.1.33):
     - GoogleMLKit/FaceDetection
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
   - smile_flutter_3 (from `.symlinks/plugins/smile_flutter_3/ios`)
 
 SPEC REPOS:
@@ -86,14 +86,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  path_provider:
-    :path: ".symlinks/plugins/path_provider/ios"
+  path_provider_ios:
+    :path: ".symlinks/plugins/path_provider_ios/ios"
   smile_flutter_3:
     :path: ".symlinks/plugins/smile_flutter_3/ios"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  GoogleDataTransport: 8378d1fa8ac49753ea6ce70d65a7cb70ce5f66e6
+  GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
   GoogleMLKit: 2bd0dc6253c4d4f227aad460f69215a504b2980e
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
@@ -104,11 +104,11 @@ SPEC CHECKSUMS:
   MLKitFaceDetection: 4981488f71ea8ed718cda692a29ab562637d9ae5
   MLKitVision: 8baa5f46ee3352614169b85250574fde38c36f49
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  smile_flutter_3: 5671ec26dea1a5e72b02f5ec003b46281a24858a
-  Smile_Identity_SDK: 9d075a7d40c535be61148343548c7fec6a66e215
+  smile_flutter_3: e6d31959097b51bd820ccb240ebc02f865cef3d8
+  Smile_Identity_SDK: 0cb603c9964c3a3a4558aaee6e2a465178765cd7
 
 PODFILE CHECKSUM: 30517025a2fecca2d72dac25f08abb5b9a8f1a56
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

@@ -7,18 +7,18 @@ version: 0.0.1
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <3.7.6"
 
 dependencies:
   flutter:
     sdk: flutter
 
 #dev testing
-  smile_flutter_3:
-    path: ../smile_flutter
+#  smile_flutter_3:
+#    path: ../smile_flutter
 
 #release testing
-#  smile_flutter : ^0.0.27-dev.1
+  smile_flutter_3 : 0.0.14
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

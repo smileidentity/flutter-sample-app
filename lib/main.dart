@@ -625,6 +625,8 @@ class _AppPageState extends State<AppPage> {
                   onPressed: () async {
                     var config = HashMap<String, String>();
                     config["id_prompt_blurry"] = "This is blurry";
+                    config["id_capture_side"] = "0";
+                    config["id_capture_orientation"] = "2";
                     var result =
                         await SmileFlutter.captureIDCard("TEST_ID_CARD",config) ??
                             null;
