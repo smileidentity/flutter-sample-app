@@ -175,11 +175,16 @@ class _AppPageState extends State<AppPage> {
     var result = await SmileFlutter.captureSelfie(tag) ?? null;
     var resultCode = result!["SID_RESULT_CODE"];
     var resultTag = result["SID_RESULT_TAG"];
+    var partnerParams = HashMap<String, String>();
+    partnerParams["user_id"] = "11";
+
+    var idInfo = HashMap<String, String>();
+    idInfo["allow_re_enroll"] = "true";
     if (resultCode == -1) {
       try {
         EasyLoading.show(status: 'loading...');
         var submitResult = await SmileFlutter.submitJob(
-            resultTag, 4, isProduction, "https:test.com",null, null, null);
+            resultTag, 4, isProduction, "https:test.com",partnerParams, idInfo, null);
         EasyLoading.dismiss();
         processResponse(submitResult);
         return;
