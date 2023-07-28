@@ -639,7 +639,7 @@ class _AppPageState extends State<AppPage> {
                     config["id_capture_side"] = "0";
                     config["id_capture_orientation"] = "2";
                     config["is_white_labelled"] = "false";
-                    var result = await SmileFlutter.captureSelfie(
+                    var result = await SmileFlutter.captureSelfieAndIDCard(
                             "test_tag", config) ??
                         null;
                     handleSelfieResult(context, result);
