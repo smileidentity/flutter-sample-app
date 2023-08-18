@@ -1,14 +1,10 @@
 import 'dart:collection';
+import 'dart:io' show Directory, File, Platform;
 
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'dart:developer';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
-import 'package:smile_flutter/smile_flutter.dart';
-import 'dart:io' show Directory, File, Platform;
+import 'package:smile_flutter/smile_flutter_3.dart';
 
 void main() {
   runApp(MyApp());
@@ -147,10 +143,10 @@ class _AppPageState extends State<AppPage> {
   }
 
   doDocVerification() async {
-    var config = HashMap<String, String>();
+    var config = HashMap<String, dynamic>();
     config["id_capture_side"] = "0";
     config["id_capture_orientation"] = "1";
-    var result = await SmileFlutter.captureSelfieAndIDCard("",config) ?? null;
+    var result = await SmileFlutter.captureSelfieAndIDCard("", config) ?? null;
     var resultCode = result!["SID_RESULT_CODE"];
     var resultTag = result["SID_RESULT_TAG"];
     if (resultCode == -1) {
@@ -183,8 +179,8 @@ class _AppPageState extends State<AppPage> {
     if (resultCode == -1) {
       try {
         EasyLoading.show(status: 'loading...');
-        var submitResult = await SmileFlutter.submitJob(
-            resultTag, 4, isProduction, "https:test.com",partnerParams, idInfo, null);
+        var submitResult = await SmileFlutter.submitJob(resultTag, 4,
+            isProduction, "https:test.com", partnerParams, idInfo, null);
         EasyLoading.dismiss();
         processResponse(submitResult);
         return;
@@ -208,8 +204,8 @@ class _AppPageState extends State<AppPage> {
     if (resultCode == -1) {
       try {
         EasyLoading.show(status: 'loading...');
-        var submitResult = await SmileFlutter.submitJob(
-            resultTag, 2, isProduction, "https:test.com", partnerParams, null, null);
+        var submitResult = await SmileFlutter.submitJob(resultTag, 2,
+            isProduction, "https:test.com", partnerParams, null, null);
         print("Japhet now running an result is ${submitResult}");
         EasyLoading.dismiss();
         processResponse(submitResult);
@@ -385,7 +381,8 @@ class _AppPageState extends State<AppPage> {
                             processResponse(submitResult);
                             return;
                           } catch (e) {
-                            EasyLoading.showError("Oops enroll with id number failed");
+                            EasyLoading.showError(
+                                "Oops enroll with id number failed");
                           }
                           // your code
                         })
@@ -396,7 +393,6 @@ class _AppPageState extends State<AppPage> {
           });
         });
   }
-
 
   docVPickerDialog(BuildContext context, {String tag = ""}) {
     showDialog(
@@ -481,12 +477,12 @@ class _AppPageState extends State<AppPage> {
                           new DropDownType('Zambia', "ZM"),
                           new DropDownType('Zimbabwe', "ZW"),
                         ].map<DropdownMenuItem<DropDownType>>(
-                                (DropDownType value) {
-                              return DropdownMenuItem<DropDownType>(
-                                value: value,
-                                child: Text(value.name),
-                              );
-                            }).toList(),
+                            (DropDownType value) {
+                          return DropdownMenuItem<DropDownType>(
+                            value: value,
+                            child: Text(value.name),
+                          );
+                        }).toList(),
                       ),
                       DropdownButton<DropDownType>(
                         value: idTypeDropDownValue,
@@ -519,12 +515,12 @@ class _AppPageState extends State<AppPage> {
                           new DropDownType("TIN", "TIN"),
                           new DropDownType("CAC", "CAC"),
                         ].map<DropdownMenuItem<DropDownType>>(
-                                (DropDownType value) {
-                              return DropdownMenuItem<DropDownType>(
-                                value: value,
-                                child: Text(value.name),
-                              );
-                            }).toList(),
+                            (DropDownType value) {
+                          return DropdownMenuItem<DropDownType>(
+                            value: value,
+                            child: Text(value.name),
+                          );
+                        }).toList(),
                       ),
                     ],
                   ),
@@ -575,7 +571,8 @@ class _AppPageState extends State<AppPage> {
                             processResponse(submitResult);
                             return;
                           } catch (e) {
-                            EasyLoading.showError("Oops document verification failed");
+                            EasyLoading.showError(
+                                "Oops document verification failed");
                           }
                           // your code
                         })
@@ -612,7 +609,9 @@ class _AppPageState extends State<AppPage> {
               ),
               OutlinedButton(
                   onPressed: () async {
-                    var result = await SmileFlutter.captureSelfie("TEST_SELFIE_ID_CARD") ?? null;
+                    var result = await SmileFlutter.captureSelfie(
+                            "TEST_SELFIE_ID_CARD") ??
+                        null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("Selfie Test")),
@@ -620,8 +619,9 @@ class _AppPageState extends State<AppPage> {
                   onPressed: () async {
                     var config = HashMap<String, String>();
                     config["id_capture_side"] = "2";
-                    var result = await SmileFlutter.captureIDCard
-                      ("TEST_ID_CARD",config) ?? null;
+                    var result = await SmileFlutter.captureIDCard(
+                            "TEST_ID_CARD", config) ??
+                        null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("ID Card Test")),
@@ -630,8 +630,9 @@ class _AppPageState extends State<AppPage> {
                     var config = HashMap<String, String>();
                     config["id_capture_side"] = "0";
                     config["id_capture_side"] = "2";
-                    var result =
-                        await SmileFlutter.captureSelfieAndIDCard("test_tag",config) ?? null;
+                    var result = await SmileFlutter.captureSelfieAndIDCard(
+                            "test_tag", config) ??
+                        null;
                     handleSelfieResult(context, result);
                   },
                   child: Text("Selfie and ID Card Test")),
@@ -678,12 +679,13 @@ class _AppPageState extends State<AppPage> {
                               Platform.isAndroid ? "ic_purse" : "AppIcon",
                               "com.smileidentity.smileFlutterExample",
                               "Smile ID Test",
-                              "https://docs.smileidentity.com/",false) ??
+                              "https://docs.smileidentity.com/",
+                              false) ??
                           null;
 
                       print("Japhet starting");
-                      for(var v in result!.keys) {
-                        print("key is "+v);
+                      for (var v in result!.keys) {
+                        print("key is " + v);
                         // print("value is "+result[v]);
                       }
                       print("Japhet ending");
@@ -750,7 +752,6 @@ class _AppPageState extends State<AppPage> {
                       // }else{
                       //   print('Images are null');
                       // }
-
                     } catch (e) {
                       print('We got an error ${e}');
                     }
